@@ -9,6 +9,11 @@ function LoginForm({ onSubmit }) {
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleLogin = async () => {
+    if (!username || !password) {
+      setErrorMessage('Por favor, preencha todos os campos.');
+      return;
+    }
+
     try {
       const response = await axios.post(`${URL}/users/login`, { username, password });
       const data = response.data;
@@ -24,6 +29,11 @@ function LoginForm({ onSubmit }) {
   };
 
   const handleSignup = async () => {
+    if (!username || !password) {
+      setErrorMessage('Por favor, preencha todos os campos.');
+      return;
+    }
+
     try {
       const response = await axios.post(`${URL}/users/`, { username, password });
       const data = response.data;
