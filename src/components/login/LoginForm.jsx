@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Navigate } from 'react-router-dom';
 
-const URL = "http://192.168.10.122:8080/"
+const URL = "http://localhost:8080/"
 
 function LoginForm({ onSubmit }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-
   const [loggedIn, setLoggedIn] = useState(false); // novo estado
+
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -23,14 +23,17 @@ function LoginForm({ onSubmit }) {
       if (response.status === 200) {
         onSubmit(data);
         setLoggedIn(true); // definir loggedIn como true após o login bem sucedido
-      } else {
-        setErrorMessage(data.message || 'Ocorreu um erro ao processar sua solicitação.');
+      }
+
+      if (loggedIn) {
+        return <Navigate to="/products" />;
       }
     } catch (error) {
       console.error(error);
       setErrorMessage('Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.');
     }
   };
+
 
   const handleSignup = async () => {
     if (!email || !password) {
@@ -59,10 +62,6 @@ function LoginForm({ onSubmit }) {
   };
 
   // renderizar o componente Navigate com base no valor do estado loggedIn
-  if (loggedIn) {
-    return <Navigate to="/home" />;
-  }
-
   return (
     <div>
       <form>
