@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginForm from './LoginForm';
+import LoginForm from '../login/LoginForm';
 import './Login.css';
 
 function Login({ onSubmit }) {

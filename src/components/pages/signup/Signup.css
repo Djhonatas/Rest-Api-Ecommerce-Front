@@ -1,0 +1,91 @@
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* adiciona esta linha */
+  background-color: #f5e8ff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  height: 91vh;
+  /* adiciona esta linha */
+}
+
+
+.signup-container h2 {
+  color: #6600cc;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.signup-container p {
+  color: #6600cc;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.signup-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.signup-container label {
+  color: #6600cc;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.signup-container input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f0d9ff;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.signup-container button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #6600cc;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+}
+
+.signup-container button:hover {
+  background-color: #4d0099;
+}
+
+.signup-container .back {
+  color: #ffffff;
+  font-size: 18px;
+  margin-top: 15px;
+  text-decoration: none;
+}
+
+.signup-container .back:hover {
+  text-decoration: underline;
+}
+
+.back {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #6a5acd;
+  background-color: #6600cc;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.back:hover {
+  background-color: #4d0099;
+}

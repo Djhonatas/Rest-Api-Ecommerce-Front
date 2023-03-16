@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   const [activeRoute, setActiveRoute] = useState('Bordados');
@@ -42,11 +43,11 @@ function Navbar() {
   return (
     <div>
       <nav className="navbar">
+        <Link to="/home" className="navbar-button navbar-button--bordered">Home</Link>
         <div className="navbar-buttons">
-          <button className={`navbar-button navbar-button--bordered ${activeRoute === 'Home' ? 'active' : ''}`} onClick={() => handleButtonClick('Home')}>Home</button>
-          <button className={`navbar-button navbar-button--bordered ${activeRoute === 'Bordados' ? 'active' : ''}`} onClick={() => handleButtonClick('Bordados')}>Bordados</button>
-          <button className={`navbar-button navbar-button--bordered ${activeRoute === 'Linhas' ? 'active' : ''}`} onClick={() => handleButtonClick('Linhas')}>Linhas</button>
-          <button className={`navbar-button navbar-button--bordered ${activeRoute === 'Empresas' ? 'active' : ''}`} onClick={() => handleButtonClick('Empresas')}>Empresas</button>
+          <Link to="/bordados" className="navbar-button navbar-button--bordered">Bordados</Link>
+          <Link to="/linhas" className="navbar-button navbar-button--bordered">Linhas</Link>
+          <Link to="/empresas" className="navbar-button navbar-button--bordered">Empresas</Link>
         </div>
       </nav>
 
