@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import NavBar from '../navbar/Navbar';
 import ProductCard from './ProductCard';
 import './Home.css'
+import Footer from '../footer/Footer';
 
 function Home() {
   const [products, setProducts] = useState([
@@ -55,6 +56,7 @@ function Home() {
       <p>Encontre aqui os melhores produtos de empresas e linhas</p>
       <NavBar />
 
+
       <h2>Bordados recentes</h2>
       <div className="product-cards">
         {products.map(product => (
@@ -68,6 +70,8 @@ function Home() {
         ))}
       </div>
     </div>
+
+
   );
 }
 

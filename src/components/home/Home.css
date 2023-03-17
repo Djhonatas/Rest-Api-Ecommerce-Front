@@ -1,49 +1,82 @@
-/* estilos das cartas de produto */
+/* Estilo para o body */
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #029b99
+}
+
+/* Estilo para o cabeçalho */
+h1 {
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  background-color: #001f21;
+  color: #fff;
+}
+
+/* Estilo para o parágrafo */
+p {
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  background-color: #001f21;
+  color: #fff;
+}
+
+/* Estilo para os bordados recentes */
+h2 {
+  margin: 20px;
+  text-align: center;
+}
+
+/* Estilo para o container dos cartões de produtos */
 .product-cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  margin: 20px;
+
 }
 
-
+/* Estilo para cada cartão de produto */
 .product-card {
-  width: 30%;
-  margin-bottom: 20px;
-  background-color: #fff;
-  border-radius: 4px;
-
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 300px;
+  border-radius: 1rem;
 }
 
+/* Estilo para a imagem do produto */
 .product-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 2rem;
+  border-radius: 1rem;
 }
 
+/* Estilo para o nome do produto */
 .product-card h3 {
-  margin: 0;
-  padding: 5px;
-  font-size: 1rem;
-  font-weight: bold;
+  margin: 10px;
+  text-align: center;
+
 }
 
+/* Estilo para a descrição do produto */
 .product-card p {
-  margin: 0;
-  padding: 10px;
-  font-size: 1rem;
+  margin: 10px;
+  text-align: justify;
+  border-radius: 1rem;
 }
 
-.product-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 1rem;
-}
+/* Media query para telas menores que 768px */
+@media (max-width: 768px) {
 
-.product-card .date {
-  margin: 0;
-  padding: 10px;
-  font-size: 0.8rem;
-  color: #999;
+  /* Estilo para cada cartão de produto */
+  .product-card {
+    width: 100%;
+  }
 }

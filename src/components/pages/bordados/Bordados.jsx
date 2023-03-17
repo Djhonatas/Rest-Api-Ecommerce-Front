@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './Bordados.css'
-import { Link } from 'react-router-dom';
+import Navbar from '../../navbar/Navbar';
+import Home from '../../home/Home'
 
-function Navbar() {
+function Bordados() {
   const [activeRoute, setActiveRoute] = useState('Bordados');
   const [imageFile, setImageFile] = useState(null);
   const [imageName, setImageName] = useState('');
@@ -43,15 +44,12 @@ function Navbar() {
 
   return (
     <div>
-      <nav className="navbar">
-        <Link to="/home" className="navbar-button navbar-button--bordered">Home</Link>
-        <div className="navbar-buttons">
-          <Link to="/bordados" className="navbar-button navbar-button--bordered">Bordados</Link>
-          <Link to="/linhas" className="navbar-button navbar-button--bordered">Linhas</Link>
-          <Link to="/empresas" className="navbar-button navbar-button--bordered">Empresas</Link>
-        </div>
-      </nav>
-
+      {/* <Home /> */}
+      <div>
+        <h1>ÁGUIA BORDADOS</h1>
+        <p>Encontre aqui os melhores produtos de empresas e linhas</p>
+      </div>
+      <Navbar activeRoute={activeRoute} handleButtonClick={handleButtonClick} />
       <div className="form-wrapper">
         <form onSubmit={handleSubmit}>
           <label>
@@ -72,7 +70,6 @@ function Navbar() {
       </div>
     </div>
   );
-
 }
 
-export default Navbar;
+export default Bordados;

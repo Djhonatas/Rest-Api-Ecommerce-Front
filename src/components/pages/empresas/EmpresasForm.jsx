@@ -1,19 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './EmpresasForm.css';
+import Navbar from '../../navbar/Navbar'; // Importa o componente Navbar
+import '../../navbar/Navbar.css';
+import Home from '../../home/Home'
 
 function EmpresasForm() {
   return (
     <div>
-      <nav className="navbar">
-        <Link to="/home" className="navbar-button navbar-button--bordered">Home</Link>
-        <div className="navbar-buttons">
-          <Link to="/bordados" className="navbar-button navbar-button--bordered">Bordados</Link>
-          <Link to="/linhas" className="navbar-button navbar-button--bordered">Linhas</Link>
-          <Link to="/empresas" className="navbar-button navbar-button--bordered">Empresas</Link>
-        </div>
-      </nav>
-
+      {/* <Home /> */}
+      <div>
+        <h1>ÁGUIA BORDADOS</h1>
+        <p>Encontre aqui os melhores produtos de empresas e linhas</p>
+      </div>
+      <Navbar /> {/* Renderiza o componente Navbar aqui */}
       <form className='form'>
         <label htmlFor="nome-empresa">Nome da Empresa:</label>
         <input type="text" id="nome-empresa" name="nome-empresa" required />
@@ -29,8 +27,6 @@ function EmpresasForm() {
         <input type="number" id="telefone" name="telefone" required />
         <button type="submit">Enviar</button>
       </form>
-
-
     </div>
   );
 }

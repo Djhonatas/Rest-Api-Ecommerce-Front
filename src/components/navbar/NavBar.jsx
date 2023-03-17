@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import EmpresasForm from '../pages/empresas/EmpresasForm';
 import './Navbar.css';
 
 function Navbar() {
@@ -13,7 +12,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <button
-        className="navbar-toggle"
+        className={`navbar-toggle ${showMenu ? 'active' : ''}`}
         aria-label="Abrir menu"
         aria-expanded={showMenu}
         onClick={toggleMenu}
@@ -22,26 +21,26 @@ function Navbar() {
       </button>
 
       <ul className={`navbar-menu ${showMenu ? 'navbar-menu--visible' : ''}`}>
-        <li className="navbar-item">
-          <Link to="/" className="navbar-link" exact>
+        <span className="navbar-item">
+          <Link to="/home" className="navbar-link" exact>
             Home
           </Link>
-        </li>
-        <li className="navbar-item">
+        </span>
+        <span className="navbar-item">
           <Link to="/bordados" className="navbar-link">
             Bordados
           </Link>
-        </li>
-        <li className="navbar-item">
+        </span>
+        <span className="navbar-item">
           <Link to="/linhas" className="navbar-link">
             Linhas
           </Link>
-        </li>
-        <li className="navbar-item">
+        </span>
+        <span className="navbar-item">
           <Link to="/empresas" className="navbar-link">
             Empresas
           </Link>
-        </li>
+        </span>
       </ul>
     </nav>
   );

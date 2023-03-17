@@ -1,0 +1,132 @@
+/* Definir as cores em tons de lilás */
+:root {
+  --color-primary: #001f21;
+  --color-secondary: #05d3f8;
+  --color-tertiary: #e3d3f3;
+}
+
+/* Navbar */
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  /* Adicionado */
+  align-items: center;
+  background-color: var(--color-primary);
+  padding: 1rem;
+  position: relative;
+}
+
+
+/* Botão toggle (esconder em telas grandes) */
+.navbar-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  /* Botão toggle (mostrar em telas pequenas) */
+  .navbar-toggle {
+    display: block;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Estilo do ícone do botão toggle */
+  .navbar-toggle__icon {
+    display: block;
+    width: 2rem;
+    height: 2px;
+    background-color: var(--color-tertiary);
+    margin: 0.5rem;
+    border-radius: 1px;
+  }
+
+  /* Menu (esconder em telas pequenas) */
+  .navbar-menu {
+    display: none;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* Menu visível quando botão toggle é clicado */
+  .navbar-menu--visible {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-primary);
+    margin: 0;
+    padding: 1rem;
+  }
+
+  /* Item do menu */
+  .navbar-item {
+    margin: 0.5rem;
+  }
+
+  /* Link do menu */
+  .navbar-link {
+    display: block;
+    color: var(--color-tertiary);
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    transition: color 0.3s ease-in-out;
+  }
+
+  /* Estilo do link do menu ao passar o mouse */
+  .navbar-link:hover {
+    color: var(--color-secondary);
+  }
+}
+
+@media (min-width: 768px) {
+
+  /* Botão toggle (esconder em telas grandes) */
+  .navbar-toggle {
+    display: none;
+  }
+
+  /* Menu (mostrar em telas grandes) */
+  .navbar-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    z-index: 1;
+  }
+
+  /* Item do menu */
+  .navbar-item {
+    margin: 0 0.5rem;
+  }
+
+  /* Link do menu */
+  .navbar-link {
+    display: block;
+    color: var(--color-tertiary);
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    transition: color 0.3s ease-in-out;
+  }
+
+  /* Estilo do link do menu ao passar o mouse */
+  .navbar-link:hover {
+    color: var(--color-secondary);
+  }
+}
