@@ -2,15 +2,19 @@ import React from 'react';
 import LoginForm from '../login/LoginForm';
 import './Login.css';
 
-function Login({ onSubmit }) {
+const Login = ({ onSubmit }) => {
+  const handleLoginFormSubmit = (data) => {
+    onSubmit(data);
+  };
+
   return (
     <div className="login-container">
-      <h2>Águia Bordados</h2>
+      <h2>ÁGUIA BORDADOS</h2>
       <div className="login-form">
-        <LoginForm onSubmit={onSubmit} />
+        <LoginForm onSubmit={handleLoginFormSubmit} />
       </div>
     </div>
   );
-}
+};
 
 export default Login;

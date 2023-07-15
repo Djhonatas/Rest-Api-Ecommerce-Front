@@ -4,29 +4,36 @@ import { ErrorMessage } from '../../ErrorMessage';
 import { URL } from '../../config/Config';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './Login.css';
 
-function Login({ onSubmit, isSignup }) {
+const LoginForm = ({ onSubmit }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = async () => {
+  const isEmailValid = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  const handleFormSubmit = async () => {
     if (!email || !password) {
       setErrorMessage('Por favor, preencha todos os campos.');
       return;
     }
+    if (!isEmailValid(email)) {
+      setErrorMessage('Por favor, insira um email válido.');
+      return;
+    }
 
     try {
-      const endpoint = isSignup ? 'users/' : 'users/login';
+      const endpoint = 'users/login';
       const response = await axios.post(`${URL}${endpoint}`, { email, password });
       const data = response.data;
-      onSubmit(data);
 
-      if (isSignup && response.status === 404) {
-        navigate.push('/signup');
-        return;
+      if (response.status === 200) {
+        console.log({ data })
+        //onSubmit(data);
+        navigate('/home');
+      } else {
+        setErrorMessage('Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.');
       }
     } catch (error) {
       console.error(error);
@@ -34,14 +41,10 @@ function Login({ onSubmit, isSignup }) {
     }
   };
 
-  const handleEmailInputChange = event => {
-    const value = event.target.value;
-    setEmail(value);
-  };
+  const handleEmailInputChange = (event) => setEmail(event.target.value);
 
   return (
     <div className="login-container">
-
       <form>
         <div className="form-group">
           <label htmlFor="email">Email:</label>
@@ -49,22 +52,19 @@ function Login({ onSubmit, isSignup }) {
         </div>
         <div className="form-group">
           <label htmlFor="password">Password:</label>
-          <input type="password" id="password" value={password} onChange={e => setPassword(e.target.value)} />
+          <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
         {errorMessage && <ErrorMessage message={errorMessage} />}
-        <button type="button" onClick={handleSubmit}>{isSignup ? 'Signup' : 'Login'}</button>
+        <button type="button" onClick={handleFormSubmit}>
+          Login
+        </button>
       </form>
     </div>
   );
-}
+};
 
-Login.propTypes = {
+LoginForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  isSignup: PropTypes.bool
 };
 
-Login.defaultProps = {
-  isSignup: false
-};
-
-export default Login;
+export default LoginForm;

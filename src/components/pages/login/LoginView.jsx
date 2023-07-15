@@ -1,14 +1,16 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import LoginForm from './LoginForm';
+import { useNavigate } from 'react-router-dom';
 
 function LoginView() {
-  const navigate = useNavigate(); // obtém a instância do history
+  const navigate = useNavigate();
 
   const handleLoginFormSubmit = (data) => {
+    // Aqui você pode realizar ações adicionais com os dados do login, se necessário
     console.log(data);
-    // aqui você pode fazer alguma ação após o login, como redirecionar para outra página
-    history.push('/home'); // redireciona para a rota "/home"
+
+    // Redireciona o usuário para a rota "/home"
+    navigate('/home');
   };
 
   return (
